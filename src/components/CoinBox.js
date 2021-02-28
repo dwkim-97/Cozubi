@@ -1,14 +1,15 @@
 import React from "react";
-import CoinImg from "../images/coins/XEM.png";
+import axios from "axios";
 import "./CoinBox.css"
 
 class CoinBox extends React.Component{
     render(){
         const name = this.props.name;
+        const imgUrl = "/images/coins/"+name+".png"
         return (
             <div className = "coin-box">
                 <h1>{ name } </h1>
-                <img className = "coin-img" src = {CoinImg} alt = {name} title = {name}/>
+                <img className = "coin-img" src = {imgUrl}  alt = {name} title = {name}/>
             </div>
         )
     }

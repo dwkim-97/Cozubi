@@ -1,5 +1,4 @@
 import React from "react";
-import LodingImg from '../images/loading3.png';
 import axios from "axios";
 import Twitter from "twitter";
 import CoinBox from "../components/CoinBox";
@@ -47,7 +46,7 @@ class Home extends React.Component{
             <div className="Loading">
                 {isLoading ?(
                     <header className="Loading-header">
-                        <img src={LodingImg} className="Loading-img" alt="logo" />
+                        <img src= "/images/loading3.png" className="Loading-img" alt="logo" />
                         <h1 className = "Loading-text">Cozubi</h1>
                         <p>Loading..</p>
                     </header>
@@ -57,7 +56,7 @@ class Home extends React.Component{
                         <section className = "Coin-List">
                             {coins.map(coin => (
                                 <CoinBox
-                                    name ={coin}/>
+                                    key = {coin} name ={coin}/>
                             ))} 
                         </section>
                     </div>
