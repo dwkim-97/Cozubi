@@ -1,14 +1,13 @@
 body{
     background-color: black;
+    text-align: center;
 }
 
 h1{
-    color: #2f91f2;
+    font-family:Arial; 
+    color: #FFC300;
 }
 
-.Loading {
-    text-align: center;
-}
   
 .Loading-img {
     height: 40vmin;
@@ -28,7 +27,7 @@ h1{
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: #2f91f2;
+    color: #FFC300;
 }
 
 @keyframes Loading-img-spin {
@@ -39,4 +38,12 @@ h1{
         transform: rotate(360deg);
     }
 }
-  
+
+.Coin-List{
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto,200px));
+    grid-template-rows: minmax(200px, auto);
+    row-gap: 40px;
+    column-gap: 40px;
+}
