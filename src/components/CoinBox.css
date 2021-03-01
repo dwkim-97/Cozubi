@@ -5,13 +5,20 @@ body{
     justify-content: center;
 }
 
+.coin-name{
+    font-weight: bold;
+    font-size: 30px;
+}
+
 .coin-box{
     background-color: #1e272e;
+    margin:10px;
     border-radius: 50px;
-    width:300px;
+    width:350px;
+    height:400px;
 }
 
 .coin-img{
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
 }

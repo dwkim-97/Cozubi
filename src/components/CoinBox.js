@@ -8,7 +8,7 @@ class CoinBox extends React.Component{
         const imgUrl = "/images/coins/"+name+".png"
         return (
             <div className = "coin-box">
-                <h1>{ name } </h1>
+                <h1 className = "coin-name" >{ name } </h1>
                 <img className = "coin-img" src = {imgUrl}  alt = {name} title = {name}/>
             </div>
         )

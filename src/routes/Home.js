@@ -63,7 +63,7 @@ class Home extends React.Component{
     render() {
         const { isLoading } = this.state;
         const {year, month, day} = this.getTime();
-        const coins = ["ADA", "XEM", "XRP"]
+        const coins = ["ADA", "XEM", "XRP", "XLM", "LTC", "DOT"]
         this.getTwitter();
         return(
             <div>
@@ -74,7 +74,7 @@ class Home extends React.Component{
                         <p>Loading..</p>
                     </header>
                 ) : (
-                    <div>
+                    <div className = "Main-Page">
                         <h1 className = "Show-Date">{year}/{month}/{day}</h1>
                         <section className = "Coin-List" >
                             {coins.map(coin => (

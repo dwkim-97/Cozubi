@@ -9,6 +9,10 @@ h1{
 }
 
   
+.Show-Date{
+    font-size: 80px;
+}
+
 .Loading-img {
     height: 40vmin;
     pointer-events: none;
@@ -39,11 +43,16 @@ h1{
     }
 }
 
+@media screen and (min-width: 40em){
+    .Coin-List {
+        grid-template-columns: repeat(200px, 1fr);
+        column-gap: 40px;
+    }
+}
+
 .Coin-List{
-    width: 1000px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(auto,200px));
-    grid-template-rows: minmax(200px, auto);
+    grid-auto-rows: minmax(200px, auto);
     row-gap: 40px;
-    column-gap: 40px;
 }
