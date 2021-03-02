@@ -9,20 +9,32 @@ class Home extends React.Component {
         isLoading: true,
     }
 
-    getTwitter = async (props) => {
-        console.log(props);
-        const token = "AAAAAAAAAAAAAAAAAAAAAGjRNAEAAAAAAeRdOWSLZA7zaQ4EpEZnHBb2a%2Fo%3DjbRfxf2BahHuYn1CUp1fGAXjbyljDTuLonYTGK9F5JH71u0lgj";
-        const endpointUrl = `/users/${props.id}/tweets`;
-        const config = {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        };
-        const response = await axios.get(endpointUrl, config)
-            .then(() => {
-                this.setState({ isLoading: false });
-            })
-    }
+    // getTwitter = async (props) => {
+    //     console.log(props)
+    //     props.map(coin => {
+    //         console.log(coin)
+    //         this.getUserTweet(coin).then(() => {
+    //             if (this.state.loaded.length === props.length) {
+    //                 this.setState({ isLoading: false })
+    //             }
+    //         })
+    //     })
+    // }
+
+    // getUserTweet = async (props) => {
+    //     const token = "AAAAAAAAAAAAAAAAAAAAAGjRNAEAAAAAAeRdOWSLZA7zaQ4EpEZnHBb2a%2Fo%3DjbRfxf2BahHuYn1CUp1fGAXjbyljDTuLonYTGK9F5JH71u0lgj";
+    //     const endpointUrl = `/users/${props.id}/tweets`;
+    //     const config = {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     };
+    //     const response = await axios.get(endpointUrl, config)
+    //         .then((response) => {
+    //             this.state.loaded.push(props.name);
+    //             console.log(response);
+    //         })
+    // }
 
     getTime = () => {
         const date = new Date();
@@ -34,15 +46,19 @@ class Home extends React.Component {
 
     componentDidMount() {
         console.log("didmount");
+        this.Loading();
     }
 
+    Loading() {
+        setTimeout(() => { this.setState({ isLoading: false }) }, 3000);
+    }
 
     render() {
         const { isLoading } = this.state;
         const { year, month, day } = this.getTime();
         const coins = [
             {
-                name: "NEM",
+                name: "XEM",
                 id: "2313671966",
             },
             {
@@ -64,11 +80,14 @@ class Home extends React.Component {
             {
                 name: "DOT",
                 id: "1595615893",
+            },
+            {
+                name: "IOST",
+                id: "946758251902881792",
             }
         ]
-        coins.map(coin => (
-            this.getTwitter(coin)
-        ));
+
+        console.log("HOME!!");
         return (
             <div>
                 {isLoading ? (
@@ -83,7 +102,7 @@ class Home extends React.Component {
                             <section className="Coin-List" >
                                 {coins.map(coin => (
                                     <CoinBox
-                                        calssName="Coin-Box" key={coin.name} name={coin.name} />
+                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} />
                                 ))}
                             </section>
                         </div>
