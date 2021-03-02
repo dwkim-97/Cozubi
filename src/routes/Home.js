@@ -10,7 +10,32 @@ class Home extends React.Component {
     }
 
     constructor(props) {
-
+        const coins = [
+            {
+                name: "NEM",
+                id: "2313671966"
+            },
+            {
+                name: "ADA",
+                id: "4135644558"
+            },
+            {
+                name: "XRP",
+                id: "1051053836"
+            },
+            {
+                name: "XLM",
+                id: "2460502890"
+            },
+            {
+                name: "LTC",
+                id: "385562752"
+            },
+            {
+                name: "DOT",
+                id: "1595615893"
+            }
+        ]
     }
 
 
