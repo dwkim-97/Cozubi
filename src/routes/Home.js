@@ -9,47 +9,19 @@ class Home extends React.Component {
         isLoading: true,
     }
 
-    constructor(props) {
-        const coins = [
-            {
-                name: "NEM",
-                id: "2313671966"
-            },
-            {
-                name: "ADA",
-                id: "4135644558"
-            },
-            {
-                name: "XRP",
-                id: "1051053836"
-            },
-            {
-                name: "XLM",
-                id: "2460502890"
-            },
-            {
-                name: "LTC",
-                id: "385562752"
-            },
-            {
-                name: "DOT",
-                id: "1595615893"
-            }
-        ]
-    }
-
-
-    getTwitter = async () => {
+    getTwitter = async (props) => {
+        console.log(props);
         const token = "AAAAAAAAAAAAAAAAAAAAAGjRNAEAAAAAAeRdOWSLZA7zaQ4EpEZnHBb2a%2Fo%3DjbRfxf2BahHuYn1CUp1fGAXjbyljDTuLonYTGK9F5JH71u0lgj";
-        const endpointUrl = "/users/2313671966/tweets";
+        const endpointUrl = `/users/${props.id}/tweets`;
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         };
         const response = await axios.get(endpointUrl, config)
-        console.log(response);
-        this.setState({ isLoading: false });
+            .then(() => {
+                this.setState({ isLoading: false });
+            })
     }
 
     getTime = () => {
@@ -61,15 +33,42 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-
+        console.log("didmount");
     }
 
 
     render() {
         const { isLoading } = this.state;
         const { year, month, day } = this.getTime();
-        const coins = ["ADA", "XEM", "XRP", "XLM", "LTC", "DOT"]
-        this.getTwitter();
+        const coins = [
+            {
+                name: "NEM",
+                id: "2313671966",
+            },
+            {
+                name: "ADA",
+                id: "4135644558",
+            },
+            {
+                name: "XRP",
+                id: "1051053836",
+            },
+            {
+                name: "XLM",
+                id: "2460502890",
+            },
+            {
+                name: "LTC",
+                id: "385562752",
+            },
+            {
+                name: "DOT",
+                id: "1595615893",
+            }
+        ]
+        coins.map(coin => (
+            this.getTwitter(coin)
+        ));
         return (
             <div>
                 {isLoading ? (
@@ -84,7 +83,7 @@ class Home extends React.Component {
                             <section className="Coin-List" >
                                 {coins.map(coin => (
                                     <CoinBox
-                                        calssName="Coin-Box" key={coin} name={coin} />
+                                        calssName="Coin-Box" key={coin.name} name={coin.name} />
                                 ))}
                             </section>
                         </div>
