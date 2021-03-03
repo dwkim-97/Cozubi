@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./CoinBox.css"
 
 class CoinBox extends React.Component {
@@ -37,6 +38,7 @@ class CoinBox extends React.Component {
 
     render() {
         const name = this.props.name;
+        const t_name = this.props.t_name;
         const id = this.props.id;
         const imgUrl = "/images/coins/" + name + ".png"
         console.log(`coin render ${name}`)
@@ -48,11 +50,18 @@ class CoinBox extends React.Component {
                 {this.state.isLoading ? (
                     <h1>Loading..</h1>
                 ) : (
-                        <div>
-                            <img id="alert-img" src={"/images/alert.png"} alt={"alert"} title={"alert"} />
-                            <h1 className="coin-name" >{name} </h1>
-                            <img className="coin-img" src={imgUrl} alt={name} title={name} />
-                        </div>
+                        <Link to={{
+                            pathname: `/${t_name}`,
+                            state: {
+                                t_name, name, id
+                            }
+                        }}>
+                            <div>
+                                <img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />
+                                <h1 className="coin-name" >{name} </h1>
+                                <img className="coin-img" src={imgUrl} alt={name} title={name} />
+                            </div>
+                        </Link>
                     )}
 
             </div>

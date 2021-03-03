@@ -69,30 +69,37 @@ class Home extends React.Component {
             {
                 name: "XEM",
                 id: "2313671966",
+                t_name: "NEMofficial",
             },
             {
                 name: "ADA",
                 id: "4135644558",
+                t_name: "CardanoStiftung",
             },
             {
                 name: "XRP",
                 id: "1051053836",
+                t_name: "Ripple"
             },
             {
                 name: "XLM",
                 id: "2460502890",
+                t_name: "StellarOrg",
             },
             {
                 name: "LTC",
                 id: "385562752",
+                t_name: "litecoin",
             },
             {
                 name: "DOT",
                 id: "1595615893",
+                t_name: "Polkadot"
             },
             {
                 name: "IOST",
                 id: "946758251902881792",
+                t_name: "IOST_Official",
             }
         ]
 
@@ -111,7 +118,7 @@ class Home extends React.Component {
                             <section className="Coin-List" >
                                 {coins.map(coin => (
                                     <CoinBox
-                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} />
+                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} t_name={coin.t_name} />
                                 ))}
                             </section>
                         </div>

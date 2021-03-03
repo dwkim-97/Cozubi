@@ -1,0 +1,21 @@
+/* #sns{
+    padding: 4% 0;
+}
+
+#sns .wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+#sns .sub-title{
+    margin-bottom: 30px;
+}
+
+.sns-box{
+    width:30%;
+} */
+
+.twitter-widget{
+    width: 70vw;
+    height: 70vh;
+}
