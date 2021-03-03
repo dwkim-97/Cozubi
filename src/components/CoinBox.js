@@ -17,8 +17,8 @@ class CoinBox extends React.Component {
         console.log(`start gt ${this.props.name}`)
         await this.getUserTweet(id)
             .then(data => {
-                console.log(data)
-                this.setState({ isLoading: false, data: data })
+                console.log(data.data)
+                this.setState({ isLoading: false, data: data.data })
             })
     }
 
@@ -49,6 +49,7 @@ class CoinBox extends React.Component {
                     <h1>Loading..</h1>
                 ) : (
                         <div>
+                            <img id="alert-img" src={"/images/alert.png"} alt={"alert"} title={"alert"} />
                             <h1 className="coin-name" >{name} </h1>
                             <img className="coin-img" src={imgUrl} alt={name} title={name} />
                         </div>

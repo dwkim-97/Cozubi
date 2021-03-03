@@ -1,8 +1,13 @@
 body{
     background-color: black;
-    text-align: center;
 }
 
+main{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index:1;
+}
 h1{
     font-family:Arial; 
     color: #FFC300;
@@ -11,6 +16,7 @@ h1{
   
 .Show-Date{
     font-size: 80px;
+    border-bottom: 2px solid #485055;
 }
 
 .Loading-img {
@@ -34,6 +40,19 @@ h1{
     color: #FFC300;
 }
 
+.Loading-header::before{
+    content: "";
+    background-image: url("/src/BG.png");
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    opacity: 0.3;   
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+}
+
 @keyframes Loading-img-spin {
     from {
         transform: rotate(0deg);
@@ -43,16 +62,24 @@ h1{
     }
 }
 
-@media screen and (min-width: 40em){
+/* @media screen and (min-width: 40em){
     .Coin-List {
-        grid-template-columns: repeat(200px, 1fr);
+        grid-template-columns: repeat(auto-fit, 1fr);
         column-gap: 40px;
     }
-}
+} */
 
 .Coin-List{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(auto,200px));
-    grid-auto-rows: minmax(200px, auto);
-    row-gap: 40px;
+    width: 90vw;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    border-left:2px solid #485055 ;
+    border-right:2px solid #485055 ;
+    border-bottom:2px solid #485055 ;
+    /* display: grid;
+    grid-auto-columns: repeat(auto-fit, minmax(auto,1000px));
+    grid-auto-rows: minmax(200px, auto); */
+    /* row-gap: 30px;
+    column-gap: 30px; */
 }

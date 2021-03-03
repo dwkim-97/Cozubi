@@ -41,7 +41,16 @@ class Home extends React.Component {
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
-        return { year, month, day }
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+
+        return { year, month, day, hour, minute }
     }
 
     componentDidMount() {
@@ -55,7 +64,7 @@ class Home extends React.Component {
 
     render() {
         const { isLoading } = this.state;
-        const { year, month, day } = this.getTime();
+        const { year, month, day, hour, minute } = this.getTime();
         const coins = [
             {
                 name: "XEM",
@@ -87,9 +96,9 @@ class Home extends React.Component {
             }
         ]
 
-        console.log("HOME!!");
+        console.log("HOME!!")
         return (
-            <div>
+            <main>
                 {isLoading ? (
                     <header className="Loading-header">
                         <img src="images/loading4.png" className="Loading-img" alt="logo" />
@@ -98,7 +107,7 @@ class Home extends React.Component {
                     </header>
                 ) : (
                         <div className="Main-Page">
-                            <h1 className="Show-Date">{year}/{month}/{day}</h1>
+                            <h1 className="Show-Date">{year}/{month}/{day} {hour}:{minute}</h1>
                             <section className="Coin-List" >
                                 {coins.map(coin => (
                                     <CoinBox
@@ -107,7 +116,7 @@ class Home extends React.Component {
                             </section>
                         </div>
                     )}
-            </div>
+            </main>
         )
     }
 }
