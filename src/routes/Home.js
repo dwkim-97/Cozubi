@@ -26,24 +26,18 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        //this.Loading();
-        // setTimeout(() => { window.location.reload(); }, 10000);
+        this.setState({ isLoading: false })
     }
-
-    // componentDidUpdate() {
-    //     //this.Loading();
-    //     this.setState({ isLoading: false })
-    // }
 
     render() {
         const { isLoading } = this.state;
         const { year, month, day, hour, minute } = this.getTime();
         const coins = [
-            {
-                name: "XEM",
-                id: "2313671966",
-                username: "NEMofficial",
-            },
+            // {
+            //     name: "XEM",
+            //     id: "2313671966",
+            //     username: "NEMofficial",
+            // },
             // {
             //     name: "ADA",
             //     id: "4135644558",
@@ -174,11 +168,11 @@ class Home extends React.Component {
             //     name: "BORA",
             //     username: "bora_ecosystem"
             // },
-            // {
-            //     id: "240048344",
-            //     name: "me",
-            //     username: "Kdw97mode",
-            // }
+            {
+                id: "240048344",
+                name: "me",
+                username: "Kdw97mode",
+            }
         ]
         console.log("home rendering")
         return (

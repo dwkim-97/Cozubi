@@ -20,6 +20,7 @@ class ShowTwitter extends React.Component {
         const { location } = this.props;
         if (location.state) {
             const url = "https://twitter.com/" + location.state.username + "?ref_src=twsrc%5Etfw"
+            window.localStorage.setItem(`${location.state.name}needcheck`, "false");
             return (
                 <div>
                     <a className="twitter-timeline" data-lang="en" data-width="100vw" data-height="100vh" data-theme="dark" href={url}></a>

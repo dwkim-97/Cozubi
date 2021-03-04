@@ -9,29 +9,26 @@ class CoinBox extends React.Component {
         super(props);
         this.state = {
             isLoading: true,
-            alreadyGet: false,
         }
     }
 
     componentDidMount() {
-        if (!this.state.alreadyGet) {
-            this.getTwitter(this.props.id);
-        }
+        this.getTwitter(this.props.id);
     }
 
     getTwitter = (id) => {
-        const data = this.getUserTweet(id)
+        const name = this.props.name;
+        this.getUserTweet(id)
             .then(data => {
-                if (!this.state.alreadyGet) {
+                if (window.localStorage.getItem(`${name}needcheck`) === "false") {
+                    console.log("alalalala")
                     if (this.checkNewTweet(data.data[0].id)) {
-                        console.log(this.props.name + "difff!")
-                        window.localStorage.setItem(this.props.name, data.data[0].id);
-                        this.setState({ isLoading: false, isNewTweet: true, alreadyGet: true, data: data.data })
-                    }
-                    else {
-                        this.setState({ isLoading: false, isNewTweet: false, alreadyGet: true, data: data.data })
+                        console.log(name + "difff!")
+                        window.localStorage.setItem(name, data.data[0].id);
+                        window.localStorage.setItem(`${name}needcheck`, "true");
                     }
                 }
+                this.setState({ isLoading: false })
             })
     }
 
@@ -62,8 +59,6 @@ class CoinBox extends React.Component {
         const username = this.props.username;
         const id = this.props.id;
         const imgUrl = "/images/coins/" + name + ".png"
-
-
         return (
             <div className="coin-box">
                 {this.state.isLoading ? (
@@ -76,7 +71,7 @@ class CoinBox extends React.Component {
                             }
                         }} style={{ "textDecoration": "none" }} >
                             <div>
-                                {this.state.isNewTweet ?
+                                {window.localStorage.getItem(`${name}needcheck`) === "true" ?
                                     (<img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />)
                                     : (null)
                                 }
