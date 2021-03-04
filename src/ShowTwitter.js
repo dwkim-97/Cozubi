@@ -4,7 +4,6 @@ import "./ShowTwitter.css";
 class ShowTwitter extends React.Component {
     componentDidMount() {
         const { location, history } = this.props;
-        console.log("hihi");
         if (location.state === undefined) {
             history.push("/");
         }
@@ -20,11 +19,10 @@ class ShowTwitter extends React.Component {
     render() {
         const { location } = this.props;
         if (location.state) {
-            const url = "https://twitter.com/" + location.state.t_name + "?ref_src=twsrc%5Etfw"
+            const url = "https://twitter.com/" + location.state.username + "?ref_src=twsrc%5Etfw"
             return (
                 <div>
                     <a className="twitter-timeline" data-lang="en" data-width="100vw" data-height="100vh" data-theme="dark" href={url}></a>
-
                 </div>
             )
         }

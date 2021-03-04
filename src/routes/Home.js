@@ -1,12 +1,11 @@
 import React from "react";
-import axios from "axios";
 import CoinBox from "../components/CoinBox";
 import './Home.css';
 
 
 class Home extends React.Component {
     state = {
-        isLoading: true,
+        isLoading: false,
     }
 
     getTime = () => {
@@ -27,12 +26,14 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.Loading();
+        //this.Loading();
+        // setTimeout(() => { window.location.reload(); }, 10000);
     }
 
-    Loading() {
-        setTimeout(() => { this.setState({ isLoading: false }) }, 3000);
-    }
+    // componentDidUpdate() {
+    //     //this.Loading();
+    //     this.setState({ isLoading: false })
+    // }
 
     render() {
         const { isLoading } = this.state;
@@ -41,45 +42,145 @@ class Home extends React.Component {
             {
                 name: "XEM",
                 id: "2313671966",
-                t_name: "NEMofficial",
+                username: "NEMofficial",
             },
-            {
-                name: "ADA",
-                id: "4135644558",
-                t_name: "CardanoStiftung",
-            },
-            {
-                name: "XRP",
-                id: "1051053836",
-                t_name: "Ripple"
-            },
-            {
-                name: "XLM",
-                id: "2460502890",
-                t_name: "StellarOrg",
-            },
-            {
-                name: "LTC",
-                id: "385562752",
-                t_name: "litecoin",
-            },
-            {
-                name: "DOT",
-                id: "1595615893",
-                t_name: "Polkadot"
-            },
-            {
-                name: "IOST",
-                id: "946758251902881792",
-                t_name: "IOST_Official",
-            },
-            {
-                name: "me",
-                id: "240048344",
-                t_name: "Kdw97mode",
-            }
+            // {
+            //     name: "ADA",
+            //     id: "4135644558",
+            //     username: "CardanoStiftung",
+            // },
+            // {
+            //     name: "XRP",
+            //     id: "1051053836",
+            //     username: "Ripple"
+            // },
+            // {
+            //     name: "XLM",
+            //     id: "2460502890",
+            //     username: "StellarOrg",
+            // },
+            // {
+            //     name: "LTC",
+            //     id: "385562752",
+            //     username: "litecoin",
+            // },
+            // {
+            //     name: "DOT",
+            //     id: "1595615893",
+            //     username: "Polkadot"
+            // },
+            // {
+            //     name: "IOST",
+            //     id: "946758251902881792",
+            //     username: "IOST_Official",
+            // },
+            // {
+            //     id: "1289021417531404289",
+            //     name: "DKA",
+            //     username: "dKargo_Official"
+            // },
+            // {
+            //     id: "20356963",
+            //     name: "ENJ",
+            //     username: "enjin"
+            // },
+            // {
+            //     id: "739770876808167424",
+            //     name: "POWR",
+            //     username: "PowerLedger_io"
+            // },
+            // {
+            //     id: "1150954258763698177",
+            //     name: "META",
+            //     username: "MetadiumG"
+            // },
+            // {
+            //     id: "2590633042",
+            //     name: "CHZ",
+            //     username: "Chiliz"
+            // },
+            // {
+            //     id: "1006952860272058368",
+            //     name: "AERGO",
+            //     username: "aergo_io"
+            // },
+            // {
+            //     id: "877706077873111040",
+            //     name: "MED",
+            //     username: "_MediBloc"
+            // },
+            // {
+            //     id: "913355281282633728",
+            //     name: "PXL",
+            //     username: "PlayCoin_PLY"
+            // },
+            // {
+            //     id: "347831597",
+            //     name: "SAND",
+            //     username: "TheSandboxGame"
+            // },
+            // {
+            //     id: "864347902029709314",
+            //     name: "CRO",
+            //     username: "cryptocom"
+            // },
+            // {
+            //     id: "841424245938769920",
+            //     name: "BAT",
+            //     username: "AttentionToken"
+            // },
+            // {
+            //     id: "2906318755",
+            //     name: "SXP",
+            //     username: "SwipeWallet"
+            // },
+            // {
+            //     id: "897652496461680640",
+            //     name: "WAXP",
+            //     username: "WAX_io"
+            // },
+            // {
+            //     id: "3291830170",
+            //     name: "MANA",
+            //     username: "decentraland"
+            // },
+            // {
+            //     id: "968676894546608128",
+            //     name: "MARO",
+            //     username: "TTC_Blockchain"
+            // },
+            // {
+            //     id: "2592325530",
+            //     name: "GAS",
+            //     username: "Neo_Blockchain"
+            // },
+            // {
+            //     id: "910043982306041856",
+            //     name: "NPXS",
+            //     username: "PundiXLabs"
+            // },
+            // {
+            //     id: "1027442266418241536",
+            //     name: "PCI",
+            //     username: "payprotocol"
+            // },
+            // {
+            //     id: "1298171176343072769",
+            //     name: "AQT",
+            //     username: "Alphaquark_"
+            // },
+            // {
+            //     id: "973106708158431232",
+            //     name: "BORA",
+            //     username: "bora_ecosystem"
+            // },
+            // {
+            //     id: "240048344",
+            //     name: "me",
+            //     username: "Kdw97mode",
+            // }
         ]
-
+        console.log("home rendering")
         return (
             <main>
                 {isLoading ? (
@@ -94,7 +195,7 @@ class Home extends React.Component {
                             <section className="Coin-List" >
                                 {coins.map(coin => (
                                     <CoinBox
-                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} t_name={coin.t_name} />
+                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} username={coin.username} />
                                 ))}
                             </section>
                         </div>
