@@ -9,33 +9,6 @@ class Home extends React.Component {
         isLoading: true,
     }
 
-    // getTwitter = async (props) => {
-    //     console.log(props)
-    //     props.map(coin => {
-    //         console.log(coin)
-    //         this.getUserTweet(coin).then(() => {
-    //             if (this.state.loaded.length === props.length) {
-    //                 this.setState({ isLoading: false })
-    //             }
-    //         })
-    //     })
-    // }
-
-    // getUserTweet = async (props) => {
-    //     const token = "AAAAAAAAAAAAAAAAAAAAAGjRNAEAAAAAAeRdOWSLZA7zaQ4EpEZnHBb2a%2Fo%3DjbRfxf2BahHuYn1CUp1fGAXjbyljDTuLonYTGK9F5JH71u0lgj";
-    //     const endpointUrl = `/users/${props.id}/tweets`;
-    //     const config = {
-    //         headers: {
-    //             Authorization: `Bearer ${token}`
-    //         }
-    //     };
-    //     const response = await axios.get(endpointUrl, config)
-    //         .then((response) => {
-    //             this.state.loaded.push(props.name);
-    //             console.log(response);
-    //         })
-    // }
-
     getTime = () => {
         const date = new Date();
         const year = date.getFullYear();
@@ -54,7 +27,6 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        console.log("didmount");
         this.Loading();
     }
 
@@ -100,10 +72,14 @@ class Home extends React.Component {
                 name: "IOST",
                 id: "946758251902881792",
                 t_name: "IOST_Official",
+            },
+            {
+                name: "me",
+                id: "240048344",
+                t_name: "Kdw97mode",
             }
         ]
 
-        console.log("HOME!!")
         return (
             <main>
                 {isLoading ? (

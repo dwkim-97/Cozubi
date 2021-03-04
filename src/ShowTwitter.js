@@ -23,7 +23,8 @@ class ShowTwitter extends React.Component {
             const url = "https://twitter.com/" + location.state.t_name + "?ref_src=twsrc%5Etfw"
             return (
                 <div>
-                    <a className="twitter-timeline" data-lang="en" data-width="100vw" data-height="100vh" data-theme="dark" href={url}>Tweets by {location.state.name}</a>
+                    <a className="twitter-timeline" data-lang="en" data-width="100vw" data-height="100vh" data-theme="dark" href={url}></a>
+
                 </div>
             )
         }

@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import "./CoinBox.css"
 
 class CoinBox extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
             isLoading: true,
+            alreadyGet: false,
         }
     }
 
@@ -15,11 +17,17 @@ class CoinBox extends React.Component {
     }
 
     getTwitter = async (id) => {
-        console.log(`start gt ${this.props.name}`)
         await this.getUserTweet(id)
             .then(data => {
-                console.log(data.data)
-                this.setState({ isLoading: false, data: data.data })
+                if (!this.state.alreadyGet) {
+                    if (this.checkNewTweet(data.data[0].id)) {
+                        window.localStorage.setItem(this.props.name, data.data[0].id);
+                        this.setState({ isLoading: false, isNewTweet: true, alreadyGet: true, data: data.data })
+                    }
+                    else {
+                        this.setState({ isLoading: false, isNewTweet: false, alreadyGet: true, data: data.data })
+                    }
+                }
             })
     }
 
@@ -32,8 +40,16 @@ class CoinBox extends React.Component {
             }
         };
         const response = await axios.get(endpointUrl, config)
-        console.log(`end gut ${this.props.name}`)
         return response.data;
+    }
+
+    checkNewTweet = (newId) => {
+        if (window.localStorage.getItem(this.props.name) !== newId) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     render() {
@@ -41,7 +57,6 @@ class CoinBox extends React.Component {
         const t_name = this.props.t_name;
         const id = this.props.id;
         const imgUrl = "/images/coins/" + name + ".png"
-        console.log(`coin render ${name}`)
         if (!this.state.data) {
             this.getTwitter(id);
         }
@@ -57,7 +72,10 @@ class CoinBox extends React.Component {
                             }
                         }}>
                             <div>
-                                <img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />
+                                {this.state.isNewTweet ?
+                                    (<img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />)
+                                    : (null)
+                                }
                                 <h1 className="coin-name" >{name} </h1>
                                 <img className="coin-img" src={imgUrl} alt={name} title={name} />
                             </div>
