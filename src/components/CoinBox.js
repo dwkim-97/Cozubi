@@ -13,14 +13,18 @@ class CoinBox extends React.Component {
         }
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
+        if (!this.state.alreadyGet) {
+            this.getTwitter(this.props.id);
+        }
     }
 
-    getTwitter = async (id) => {
-        await this.getUserTweet(id)
+    getTwitter = (id) => {
+        const data = this.getUserTweet(id)
             .then(data => {
                 if (!this.state.alreadyGet) {
                     if (this.checkNewTweet(data.data[0].id)) {
+                        console.log(this.props.name + "difff!")
                         window.localStorage.setItem(this.props.name, data.data[0].id);
                         this.setState({ isLoading: false, isNewTweet: true, alreadyGet: true, data: data.data })
                     }
@@ -33,13 +37,14 @@ class CoinBox extends React.Component {
 
     getUserTweet = async (id) => {
         const token = "AAAAAAAAAAAAAAAAAAAAAGjRNAEAAAAAAeRdOWSLZA7zaQ4EpEZnHBb2a%2Fo%3DjbRfxf2BahHuYn1CUp1fGAXjbyljDTuLonYTGK9F5JH71u0lgj";
-        const endpointUrl = `/users/${id}/tweets`;
+        const endpointUrl = `/users/${id}/tweets?max_results=5`;
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         };
         const response = await axios.get(endpointUrl, config)
+        console.log(response);
         return response.data;
     }
 
@@ -54,23 +59,22 @@ class CoinBox extends React.Component {
 
     render() {
         const name = this.props.name;
-        const t_name = this.props.t_name;
+        const username = this.props.username;
         const id = this.props.id;
         const imgUrl = "/images/coins/" + name + ".png"
-        if (!this.state.data) {
-            this.getTwitter(id);
-        }
+
+
         return (
             <div className="coin-box">
                 {this.state.isLoading ? (
                     <h1>Loading..</h1>
                 ) : (
                         <Link to={{
-                            pathname: `/${t_name}`,
+                            pathname: `/${username}`,
                             state: {
-                                t_name, name, id
+                                username, name, id
                             }
-                        }}>
+                        }} style={{ "textDecoration": "none" }} >
                             <div>
                                 {this.state.isNewTweet ?
                                     (<img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />)
