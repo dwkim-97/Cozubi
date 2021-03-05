@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Children } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ShowTwitter from "./ShowTwitter";
 import "./CoinBox.css"
 
 class CoinBox extends React.Component {
@@ -9,6 +10,7 @@ class CoinBox extends React.Component {
         super(props);
         this.state = {
             isLoading: true,
+            modalOpen: false,
         }
     }
 
@@ -54,6 +56,18 @@ class CoinBox extends React.Component {
         }
     }
 
+    openModal = () => {
+        this.setState({ isLoading: this.state.isLoading, modalOpen: true })
+    }
+
+    closeModal = () => {
+        this.setState({ isLoading: this.state.isLoading, modalOpen: false })
+    }
+
+    componentDidUpdate() {
+        console.log("update");
+    }
+
     render() {
         const name = this.props.name;
         const username = this.props.username;
@@ -64,21 +78,32 @@ class CoinBox extends React.Component {
                 {this.state.isLoading ? (
                     <h1>Loading..</h1>
                 ) : (
-                        <Link to={{
-                            pathname: `/${username}`,
-                            state: {
-                                username, name, id
-                            }
-                        }} style={{ "textDecoration": "none" }} >
-                            <div>
+                        <div>
+                            <button onClick={this.openModal}>
                                 {window.localStorage.getItem(`${name}needcheck`) === "true" ?
                                     (<img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />)
                                     : (null)
                                 }
                                 <h1 className="coin-name" >{name} </h1>
                                 <img className="coin-img" src={imgUrl} alt={name} title={name} />
-                            </div>
-                        </Link>
+                            </button>
+                            <ShowTwitter modalOpen={this.state.modalOpen} modalClose={this.closeModal} username={username} name={name} />
+                        </div>
+                        // <Link to={{
+                        //     pathname: `/${username}`,
+                        //     state: {
+                        //         username, name, id
+                        //     }
+                        // }} style={{ "textDecoration": "none" }} >
+                        //     <div>
+                        //         {window.localStorage.getItem(`${name}needcheck`) === "true" ?
+                        //             (<img id="alert-img" src={"/images/alert4.png"} alt={"alert"} title={"alert"} />)
+                        //             : (null)
+                        //         }
+                        //         <h1 className="coin-name" >{name} </h1>
+                        //         <img className="coin-img" src={imgUrl} alt={name} title={name} />
+                        //     </div>
+                        // </Link>
                     )}
 
             </div>

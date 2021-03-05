@@ -16,6 +16,7 @@ class ShowTwitter extends React.Component {
 
         document.body.appendChild(script);
     }
+
     render() {
         const { location } = this.props;
         if (location.state) {
