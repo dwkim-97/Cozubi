@@ -13,7 +13,7 @@ function ShowTwitter(props) {
     }
 
     const url = "https://twitter.com/" + props.username + "?ref_src=twsrc%5Etfw";
-    window.localStorage.setItem(`${props.name}needcheck`, "false");
+
 
     React.useEffect(() => {
         setModalOpen(props.modalOpen);
@@ -23,6 +23,7 @@ function ShowTwitter(props) {
         <div>
             {modalOpen ? (
                 <div className="twitter-modal">
+                    {window.localStorage.setItem(`${props.name}needcheck`, "false")}
                     <button className="close-button" onClick={props.modalClose}>X</button>
                     <a className="twitter-timeline" data-lang="en" data-width="100vw" data-height="70vh" data-theme="dark" href={url} ></a>
                     {addScript()}
