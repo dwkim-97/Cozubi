@@ -104,9 +104,9 @@ class Home extends React.Component {
                 username: "_MediBloc"
             },
             {
-                id: "913355281282633728",
+                id: "1155994938271600643",
                 name: "PXL",
-                username: "PlayCoin_PLY"
+                username: "PictionNetwork"
             },
             {
                 id: "347831597",
