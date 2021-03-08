@@ -55,8 +55,8 @@ class Home extends React.Component {
             },
             {
                 name: "LTC",
-                id: "385562752",
-                username: "litecoin",
+                id: "1656328279",
+                username: "LTCFoundation",
             },
             {
                 name: "DOT",
@@ -286,21 +286,21 @@ class Home extends React.Component {
                         <p>Loading..</p>
                     </header>
                 ) : (
-                        <div className="Main-Page">
-                            {/* <h1 className="Show-Date">{year}/{month}/{day} {hour}:{minute}</h1> */}
-                            <div className="Title">
-                                <img src={"images/loading4.png"} />
-                                <h1>COZUBI</h1>
-                            </div>
-
-                            <section className="Coin-List" >
-                                {coins.map(coin => (
-                                    <CoinBox
-                                        calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} username={coin.username} />
-                                ))}
-                            </section>
+                    <div className="Main-Page">
+                        {/* <h1 className="Show-Date">{year}/{month}/{day} {hour}:{minute}</h1> */}
+                        <div className="Title">
+                            <img src={"images/loading4.png"} />
+                            <h1>COZUBI</h1>
                         </div>
-                    )}
+
+                        <section className="Coin-List" >
+                            {coins.map(coin => (
+                                <CoinBox
+                                    calssName="Coin-Box" key={coin.name} name={coin.name} id={coin.id} username={coin.username} />
+                            ))}
+                        </section>
+                    </div>
+                )}
             </main>
         )
     }
