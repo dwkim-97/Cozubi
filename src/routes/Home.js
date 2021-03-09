@@ -203,6 +203,11 @@ class Home extends React.Component {
                 name: "TSHP",
                 username: "TwelveShips12"
             },
+            {
+                id: "2592325530",
+                name: "NEO",
+                username: "Neo_Blockchain"
+            },
             { id: "948119493040943104", name: "MOC", username: "TheMossland" },
             { id: "2896892108", name: "IQ", username: "Everipedia" },
             { id: "1115345843664629760", name: "STPT", username: "STP_Networks" },
