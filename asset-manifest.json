@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cozubi/static/css/main.329c4ac6.chunk.css",
-    "main.js": "/cozubi/static/js/main.1ef24427.chunk.js",
-    "main.js.map": "/cozubi/static/js/main.1ef24427.chunk.js.map",
+    "main.js": "/cozubi/static/js/main.3f12c1c8.chunk.js",
+    "main.js.map": "/cozubi/static/js/main.3f12c1c8.chunk.js.map",
     "runtime-main.js": "/cozubi/static/js/runtime-main.cda68d8b.js",
     "runtime-main.js.map": "/cozubi/static/js/runtime-main.cda68d8b.js.map",
     "static/js/2.8b9344f3.chunk.js": "/cozubi/static/js/2.8b9344f3.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.cda68d8b.js",
     "static/js/2.8b9344f3.chunk.js",
     "static/css/main.329c4ac6.chunk.css",
-    "static/js/main.1ef24427.chunk.js"
+    "static/js/main.3f12c1c8.chunk.js"
   ]
 }
