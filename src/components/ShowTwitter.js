@@ -14,7 +14,6 @@ function ShowTwitter(props) {
 
     const url = "https://twitter.com/" + props.username + "?ref_src=twsrc%5Etfw";
 
-
     React.useEffect(() => {
         setModalOpen(props.modalOpen);
     }, [props.modalOpen])
@@ -29,8 +28,8 @@ function ShowTwitter(props) {
                     {addScript()}
                 </div>
             ) : (
-                    null
-                )}
+                null
+            )}
         </div>
     )
 }
