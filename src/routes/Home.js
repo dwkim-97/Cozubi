@@ -33,181 +33,41 @@ class Home extends React.Component {
         const { isLoading } = this.state;
         const { year, month, day, hour, minute } = this.getTime();
         const coins = [
-            {
-                name: "XEM",
-                id: "2313671966",
-                username: "NEMofficial",
-            },
-            {
-                name: "ADA",
-                id: "4135644558",
-                username: "CardanoStiftung",
-            },
-            {
-                name: "XRP",
-                id: "1051053836",
-                username: "Ripple"
-            },
-            {
-                name: "XLM",
-                id: "2460502890",
-                username: "StellarOrg",
-            },
-            {
-                name: "LTC",
-                id: "1656328279",
-                username: "LTCFoundation",
-            },
-            {
-                name: "DOT",
-                id: "1595615893",
-                username: "Polkadot"
-            },
-            {
-                name: "IOST",
-                id: "946758251902881792",
-                username: "IOST_Official",
-            },
-            {
-                id: "1289021417531404289",
-                name: "DKA",
-                username: "dKargo_Official"
-            },
-            {
-                id: "20356963",
-                name: "ENJ",
-                username: "enjin"
-            },
-            {
-                id: "739770876808167424",
-                name: "POWR",
-                username: "PowerLedger_io"
-            },
-            {
-                id: "1150954258763698177",
-                name: "META",
-                username: "MetadiumG"
-            },
-            {
-                id: "2590633042",
-                name: "CHZ",
-                username: "Chiliz"
-            },
-            {
-                id: "1006952860272058368",
-                name: "AERGO",
-                username: "aergo_io"
-            },
-            {
-                id: "877706077873111040",
-                name: "MED",
-                username: "_MediBloc"
-            },
-            {
-                id: "1155994938271600643",
-                name: "PXL",
-                username: "PictionNetwork"
-            },
-            {
-                id: "347831597",
-                name: "SAND",
-                username: "TheSandboxGame"
-            },
-            {
-                id: "864347902029709314",
-                name: "CRO",
-                username: "cryptocom"
-            },
-            {
-                id: "841424245938769920",
-                name: "BAT",
-                username: "AttentionToken"
-            },
-            {
-                id: "2906318755",
-                name: "SXP",
-                username: "SwipeWallet"
-            },
-            {
-                id: "897652496461680640",
-                name: "WAXP",
-                username: "WAX_io"
-            },
-            {
-                id: "3291830170",
-                name: "MANA",
-                username: "decentraland"
-            },
-            {
-                id: "968676894546608128",
-                name: "MARO",
-                username: "TTC_Blockchain"
-            },
-            {
-                id: "2592325530",
-                name: "GAS",
-                username: "Neo_Blockchain"
-            },
-            {
-                id: "910043982306041856",
-                name: "NPXS",
-                username: "PundiXLabs"
-            },
-            {
-                id: "1027442266418241536",
-                name: "PCI",
-                username: "payprotocol"
-            },
-            {
-                id: "1298171176343072769",
-                name: "AQT",
-                username: "Alphaquark_"
-            },
-            {
-                id: "973106708158431232",
-                name: "BORA",
-                username: "bora_ecosystem"
-            },
-            {
-                id: "1289063252966559744",
-                name: "QTCON",
-                username: "quiztokkr"
-            },
-            {
-                id: "1162054281739898880",
-                name: "HBAR",
-                username: "hashgraph"
-            },
-            {
-                id: "1010430329218371584",
-                name: "ANKR",
-                username: "ankr"
-            },
-            {
-                id: "1032773383958745088",
-                name: "KAVA",
-                username: "kava_labs"
-            },
-            {
-                id: "890365489658122242",
-                name: "POLY",
-                username: "PolymathNetwork"
-            },
-            {
-                id: "1045586175853965312",
-                name: "SSX",
-                username: "somesinglovers"
-            },
-            {
-                id: "970487711634046977",
-                name: "TSHP",
-                username: "TwelveShips12"
-            },
-            {
-                id: "2592325530",
-                name: "NEO",
-                username: "Neo_Blockchain"
-            },
+            { name: "XEM", id: "2313671966", username: "NEMofficial", },
+            { name: "ADA", id: "4135644558", username: "CardanoStiftung", },
+            { name: "XRP", id: "1051053836", username: "Ripple" },
+            { name: "XLM", id: "2460502890", username: "StellarOrg", },
+            { name: "LTC", id: "1656328279", username: "LTCFoundation", },
+            { name: "DOT", id: "1595615893", username: "Polkadot" },
+            { name: "IOST", id: "946758251902881792", username: "IOST_Official", },
+            { id: "1289021417531404289", name: "DKA", username: "dKargo_Official" },
+            { id: "20356963", name: "ENJ", username: "enjin" },
+            { id: "739770876808167424", name: "POWR", username: "PowerLedger_io" },
+            { id: "1150954258763698177", name: "META", username: "MetadiumG" },
+            { id: "2590633042", name: "CHZ", username: "Chiliz" },
+            { id: "1006952860272058368", name: "AERGO", username: "aergo_io" },
+            { id: "877706077873111040", name: "MED", username: "_MediBloc" },
+            { id: "1155994938271600643", name: "PXL", username: "PictionNetwork" },
+            { id: "347831597", name: "SAND", username: "TheSandboxGame" },
+            { id: "864347902029709314", name: "CRO", username: "cryptocom" },
+            { id: "841424245938769920", name: "BAT", username: "AttentionToken" },
+            { id: "2906318755", name: "SXP", username: "SwipeWallet" },
+            { id: "897652496461680640", name: "WAXP", username: "WAX_io" },
+            { id: "3291830170", name: "MANA", username: "decentraland" },
+            { id: "968676894546608128", name: "MARO", username: "TTC_Blockchain" },
+            { id: "2592325530", name: "GAS", username: "Neo_Blockchain" },
+            { id: "910043982306041856", name: "NPXS", username: "PundiXLabs" },
+            { id: "1027442266418241536", name: "PCI", username: "payprotocol" },
+            { id: "1298171176343072769", name: "AQT", username: "Alphaquark_" },
+            { id: "973106708158431232", name: "BORA", username: "bora_ecosystem" },
+            { id: "1289063252966559744", name: "QTCON", username: "quiztokkr" },
+            { id: "1162054281739898880", name: "HBAR", username: "hashgraph" },
+            { id: "1010430329218371584", name: "ANKR", username: "ankr" },
+            { id: "1032773383958745088", name: "KAVA", username: "kava_labs" },
+            { id: "890365489658122242", name: "POLY", username: "PolymathNetwork" },
+            { id: "1045586175853965312", name: "SSX", username: "somesinglovers" },
+            { id: "970487711634046977", name: "TSHP", username: "TwelveShips12" },
+            { id: "2592325530", name: "NEO", username: "Neo_Blockchain" },
             { id: "948119493040943104", name: "MOC", username: "TheMossland" },
             { id: "2896892108", name: "IQ", username: "Everipedia" },
             { id: "1115345843664629760", name: "STPT", username: "STP_Networks" },
@@ -253,7 +113,7 @@ class Home extends React.Component {
             { id: "1237565114020175872", name: "HIVE", username: "hiveblocks" },
             { id: "873664699262418946", name: "RFR", username: "Refereum" },
             { id: "999282539066937344", name: "OBSR", username: "observerfounda1" },
-            { id: "869908314292924416", name: "ADX", username: "AdEx_Network" },
+            // { id: "869908314292924416", name: "ADX", username: "AdEx_Network" },
             { id: "1057205263839588353", name: "AHT", username: "_aha_official" },
             { id: "4736263474", name: "LSK", username: "LiskHQ" },
             { id: "773009781644677120", name: "QTUM", username: "qtum" },
