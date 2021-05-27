@@ -22,7 +22,8 @@ class CoinBox extends React.Component {
         const name = this.props.name;
         this.getUserTweet(id)
             .then(data => {
-                if (window.localStorage.getItem(`${name}needcheck`) === "false") {
+                const needCheck = window.localStorage.getItem(`${name}needcheck`);
+                if (needCheck === "false" || !needCheck) {
                     console.log("alalalala")
                     if (this.checkNewTweet(data.data[0].id)) {
                         console.log(name + "difff!")
